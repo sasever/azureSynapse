@@ -136,7 +136,7 @@ FROM
     [PrecipitationInches] float,
     [AvgTemperatureFahrenheit] float) 
     AS [result];
-```sql
+```
 
 ### Loading CSV data from blob to SQL Pools with COPY TO command
 
@@ -526,5 +526,7 @@ WITH
 ```
 
 **Note:** Round robin is not a very good choice to distribute the tables, but that is not our subject for this exercise. You can get more information about how to efficiently design the table layout for good query performance from the [Guidance for designing distributed tables](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-distribute?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) and [CCI best practices](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/data-load-columnstore-compression) on microsoft docs.
+
+Once you have your data loaded you can query your data as you want.
 
 More detail about the MPP architecture which the Azure SQL Pools base on can be found [here](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/overview-architecture) 
