@@ -5,8 +5,7 @@ Before creating the Azure Synapse Workspace we will prepare our data.
 
 Please follow below steps:
 
-1 . Create a Resource Group to host the Azure Synapse Workspace. You may chose to deploy another one for Azure Data Lake.
-
+1. Create a Resource Group to host the Azure Synapse Workspace. You may chose to deploy another one for Azure Data Lake.
 1. We need to create an [Azure Data Lake Gen2 storage](https://docs.microsoft.com/en-us/azure/storage/blobs/create-data-lake-storage-account). We will create the storage first as publicly accessible. After copying required data, we can close the public access.
 
 1. We will copy the data to the new storage. You can use storage explorer or azcopy utility from cloud shell for this purpose.
