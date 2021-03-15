@@ -530,3 +530,8 @@ WITH
 Once you have your data loaded you can query your data as you want.
 
 More detail about the MPP architecture which the Azure SQL Pools base on can be found [here](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/overview-architecture) 
+
+## High Availability for Synapse
+
+Azure Synapse workspaces are backed up daily basis.
+You can find detailed information on HA DR [here](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/migrate/azure-best-practices/analytics/azure-synapse)
