@@ -62,7 +62,7 @@ Use [this guidance](https://docs.microsoft.com/en-us/azure/synapse-analytics/sec
 
     It should take around 1 minute to get the approval reflected for your private endpoint.
 
-1.To help in further process, we will also enable "interactive authoring" capability. To do that on the most left blade we need to go to MANAGE>Integration runtimes and click on AutoResolveIntegrationRuntime. From the menu that opens, Select **Enable** for **Interactive authoring**.
+1. To help in further process, we will also enable "interactive authoring" capability. To do that on the most left blade we need to go to MANAGE>Integration runtimes and click on AutoResolveIntegrationRuntime. From the menu that opens, Select **Enable** for **Interactive authoring**.
 
 1. For the Storage that we  created a managed private link, We will create a linked server. To do this,
     * On the Storage Account in access control we need to grant **Storage Blob Data Contributor** role to the Synapse Workspace's Managed Identity. Go to Grant access to this resource>Add role assignment, Select Role: Storage Blob Contributor, Assign Access to: User,group, or service principal. Write the  Managed Identity Name of the Workspace(name of the workspace) to select box. The identity will show itself below. select that, and click save, which should have been activated after selecting. As an alternative you can grant the same rights from storage explorer.
@@ -275,7 +275,7 @@ WITH
 
 ```
 
-Load data with [COPY command](https://docs.microsoft.com/en-us/azure/data-factory/connector-azure-sql-data-warehouse#use-copy-statement) While you can manually load data with below given scripts, you can also browse the storage account from linked services menu and right click to ... and click open. From the listed directories you can right click which one you want to populate  to the database, and from the menu click on new SQL Script, Bulk load, pick a table name and generate load script.
+Load data with [COPY INTO command](https://docs.microsoft.com/en-us/azure/data-factory/connector-azure-sql-data-warehouse#use-copy-statement) While you can manually load data with below given scripts, you can also browse the storage account from linked services menu and right click to ... and click open. From the listed directories you can right click which one you want to populate  to the database, and from the menu click on new SQL Script, Bulk load, pick a table name and generate load script.
 
 *The original tutorial used as reference can be found [here](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/load-data-from-azure-blob-storage-using-copy?bc=/azure/synapse-analytics/breadcrumb/toc.json&toc=/azure/synapse-analytics/toc.json#load-the-data-into-your-data-warehouse)*
 
@@ -352,7 +352,7 @@ WITH
 OPTION (LABEL = 'COPY : Load [dbo].[Weather] - Taxi dataset');
 ```
 
-Lets load the Trips table now,, which is stored in parquet format.
+Lets load the Trips table now, which is stored in parquet format.
 to test another way of loading ,using [POLYBASE](https://docs.microsoft.com/en-us/azure/data-factory/connector-azure-sql-data-warehouse#use-polybase-to-load-data-into-azure-synapse-analytics)
 we will first create an external table for this table and then load the actual table with a CTAS (CREATE AS SELECT) statement.
 
@@ -491,7 +491,7 @@ SELECT  ISNULL(CAST([vendorID]  AS INTEGER),0) as [vendorID]
  FROM [dbo].[Ext_Yellow_Trips];
 ```
 
-If you want to test TRUNCATE & INSERT or COPY TO  you can use below script to create the table initially, but you should still do the type casting as used i n above CTAS statements SELECT part in the INSERT statement's SELECT part that you will use to populate the date to the target table.
+If you want to test TRUNCATE & INSERT or COPY INTO you can use below script to create the table initially, but you should still do the type casting as used in above CTAS statements SELECT part in the INSERT statement's SELECT part that you will use to populate the date to the target table.
 
 ```sql
 IF OBJECT_ID('[dbo].[Yellow_Trips]') IS NOT NULL
@@ -536,3 +536,12 @@ More detail about the MPP architecture which the Azure SQL Pools base on can be 
 
 Azure Synapse workspaces are backed up daily basis.
 You can find detailed information on HA DR [here](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/migrate/azure-best-practices/analytics/azure-synapse)
+
+## Deployment options 
+
+Azure Synapse can be deployed and configured via both Azure NAtive ARM and Terraform.
+
+* [ARM](https://docs.microsoft.com/en-us/azure/synapse-analytics/quickstart-deployment-template-workspaces)
+* [Terraform](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/synapse_workspace)
+
+
